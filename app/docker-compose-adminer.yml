@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 3000:8080
+    networks:
+      - traefik-gateway
+    restart: unless-stopped
+networks:
+  traefik-gateway:
+    external:
+       name: jds-dev-network
