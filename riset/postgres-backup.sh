@@ -2,7 +2,7 @@
  
 ################################################################
 ## basic backup pgsql
-## pg_dump dbname > dbname.bak
+## docker exec postgres pg_dump -U postgres -F t my_db | gzip >/backups/my_db-$(date +%Y-%m-%d).tar.gz
 ## 0 0 * * 0 pg_dump -U postgres dbname > ~/postgres/backups/dbname.bak
 ## pg_dump -h 198.51.100.0 -p 5432 dbname > dbname.bak
 ################################################################
