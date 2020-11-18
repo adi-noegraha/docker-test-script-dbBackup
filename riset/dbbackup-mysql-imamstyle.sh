@@ -6,7 +6,7 @@ FILENAME=$BACKUP_DIR/$DB_NAME.gz
 Notify=0
 Rotate=30
 USER=root
-PASSWORD=''
+PASSWORD=' '
 HOST=127.0.0.1
 logfile=$BACKUP_DIR/backup.log
 echo ".............Backup Script Running on $TSTAMP............" >> $logfile
