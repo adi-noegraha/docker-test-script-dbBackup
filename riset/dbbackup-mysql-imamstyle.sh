@@ -1,12 +1,12 @@
 #!/bin/bash
-BACKUP_DIR=/backupdatabase/mysql
+BACKUP_DIR=/backup-database/mysql
 DB_NAME=
-TSTAMP=`date +%Y%m%d`
+TSTAMP='date +%Y%m%d'
 FILENAME=$BACKUP_DIR/$DB_NAME.gz
 Notify=0
 Rotate=30
 USER=root
-PASSWORD=
+PASSWORD=''
 HOST=127.0.0.1
 logfile=$BACKUP_DIR/backup.log
 echo ".............Backup Script Running on $TSTAMP............" >> $logfile
@@ -32,13 +32,13 @@ done
 mysqldump -u $USER -h $HOST -p$PASSWORD $DB_NAME | gzip > $FILENAME.1
 echo "..........Backup Script Completed,Exiting Now.$TSTAMP........." >> $logfile
 if [ $Notify == 1 ];then
-  SUBJECT="Database Backup Completed on:`hostname`"
+  SUBJECT="Database Backup Completed on:'hostname'"
   ADMIN="admin email"
   function message {
     echo -e "Hi there,\n"
     echo -e "..........................................................\n"
-    echo -e "This is to notify that database backup has completed on:`hostname`\n"
-    echo -e "Date-Time:`date`\n"
+    echo -e "This is to notify that database backup has completed on:'hostname'\n"
+    echo -e "Date-Time:'date'\n"
     echo -e "--------------------------------------------------------\n"
   }
 fi
